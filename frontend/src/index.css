@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sand: #f8f5ef;
+  --ink: #0f172a;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+}
+
+.note-grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+/* small asymmetry so the grid feels lived-in */
+.note-grid > article:nth-child(3n) {
+  margin-top: 0.35rem;
+}
+
+.note-grid > article:nth-child(4n) {
+  transform: translateY(4px);
+}
+
+.fade-in {
+  animation: fade 240ms ease-in;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
